@@ -9,4 +9,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Responsibility extends Model
 {
     use HasFactory, SoftDeletes;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'role_id',
+    ];
+
+    /**
+     * Get the role that owns the responsibility.
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

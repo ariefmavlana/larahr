@@ -53,6 +53,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get the companies many to many.
+     */
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class);
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
