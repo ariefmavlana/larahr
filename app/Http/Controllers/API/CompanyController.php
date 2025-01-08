@@ -96,7 +96,7 @@ class CompanyController extends Controller
             //Update Company
             $company->update([
                 'name' => $request->name,
-                'logo' => $path
+                'logo' => isset($path) ? $path : $company->logo,
             ]);
 
             return ResponseFormatter::success($company, 'Company Updated');
